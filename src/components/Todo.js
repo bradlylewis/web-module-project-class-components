@@ -1,17 +1,18 @@
-import React, { useState }  from 'react';
+import React from 'react';
+import './Todo.css'
 
-const Item = props => {
+const Todo = props => {
 
   const handleClick = ()=> {
     // console.log(props.item.name);
-    props.handlePurchased(props.item.id);
+    props.handleCompleted(props.item.id);
   }
 
   return (
-    <div onClick={handleClick}className={`item${props.item.purchased ? ' purchased' : ''}`}>
-      <p>{props.item.name}</p>
+    <div onClick={handleClick}className={`item${props.item.completed ? ' completed' : ''}`}>
+      <p>{props.item.task}</p>
     </div>
   );
 };
 
-export default Item;
+export default Todo;

@@ -1,21 +1,24 @@
 import React from "react";
-import Item from "./Item";
+import Todo from "./Todo";
 
-const GroceryList = props => {
-  const handleClick = ()=> {
-    props.handleClear();
+const TodoList = props => {
+
+    // Clear completed items when clicked
+    const handleClick = ()=> {
+        props.handleClear();
   }
 
+
   return (
-    <div className="shopping-list">
-      {props.groceries.map(item => (
-        <Item handlePurchased={props.handlePurchased} key={item.id} item={item} />
+    <div className="activities-list">
+      {props.activities.map(item => (
+        <Todo handleCompleted={props.handleCompleted} key={item.id} item={item} />
       ))}
       <button onClick={handleClick} className="clear-btn">
-        Clear Purchased
+        Clear Completed
       </button>
     </div>
   );
 };
 
-export default GroceryList;
+export default TodoList;

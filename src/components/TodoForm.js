@@ -1,6 +1,6 @@
 import React from "react";
 
-class ListForm extends React.Component {
+class TodoForm extends React.Component {
   // Constructor with state
   constructor() {
     super();
@@ -9,24 +9,23 @@ class ListForm extends React.Component {
     }
   }
 
-  handleChanges = e => {
+  handleChanges = event => {
     this.setState({
       ...this.state,
-      inputValue:e.target.value
+      inputValue:event.target.value
     })
     // update state with each keystroke
   };
 
   // class property to submit form
-  handleClick = (e)=> {
-    e.preventDefault();
+  handleClick = (event)=> {
+    event.preventDefault();
     this.props.handleAddItem(this.state.inputValue);
   }
 
   render() {
     return (
       <form>
-        {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
         <input onChange={this.handleChanges}type="text" name="item" />
         <button onClick={this.handleClick}>Add</button>
       </form>
@@ -34,4 +33,4 @@ class ListForm extends React.Component {
   }
 }
 
-export default ListForm;
+export default TodoForm;
